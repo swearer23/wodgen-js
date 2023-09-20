@@ -5,4 +5,5 @@ export type Wod = {
   content: string
   timecap: string
   exercises: string[]
+  round?: number
 }

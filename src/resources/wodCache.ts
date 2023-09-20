@@ -27,12 +27,11 @@ const cache = {
 
 export default async () => {
   const cachedWod = cache.read()
-  // console.log(cachedWod)
   let wod: Wod
   if (cachedWod && cachedWod.ts > Date.now() - 1000 * 5 * 60) {
     wod = cachedWod.wod
   } else {
-    wod = JSON.parse((await getWod()).content) as Wod
+    wod = (await getWod()) as Wod
     cache.write(wod)
   }
   return wod

@@ -14,9 +14,15 @@ dependencies:
   '@fontsource/roboto':
     specifier: ^5.0.8
     version: 5.0.8
+  '@mui/base':
+    specifier: 5.0.0-beta.16
+    version: 5.0.0-beta.16(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
   '@mui/material':
     specifier: ^5.14.10
     version: 5.14.10(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
+  '@mui/system':
+    specifier: ^5.14.10
+    version: 5.14.10(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.21)(react@18.2.0)
   '@types/node':
     specifier: 20.6.2
     version: 20.6.2
@@ -29,6 +35,9 @@ dependencies:
   autoprefixer:
     specifier: 10.4.15
     version: 10.4.15(postcss@8.4.29)
+  clsx:
+    specifier: ^2.0.0
+    version: 2.0.0
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1

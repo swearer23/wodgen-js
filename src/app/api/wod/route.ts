@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import getWodCache from '@/resources/wodCache'
+import { getWod } from '@/resources/wod'
 
 export async function POST(request: NextRequest) {
   const { body } = await request.json()
   const type = body.type
-  const wod = await getWodCache(type)
+  const wod = await getWod(type)
   return wod
 }
