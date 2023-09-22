@@ -1,10 +1,9 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Wod } from '@/types'
 import {BsBookmarkStar} from 'react-icons/bs'
 
 export default function WhiteBoard() {
-
   const [wod, setWod] = useState(null as unknown as Wod)
   const [loading, setLoading] = useState(false)
 
@@ -19,8 +18,10 @@ export default function WhiteBoard() {
     setLoading(false)
   }
 
-  if (!wod && !loading) generateWod()
-
+  useEffect(() => {
+    if (!wod && !loading) generateWod()
+  }, [])
+  
   if (loading) {
     return (
       <div className="mt-10">
