@@ -16,7 +16,7 @@ export default function RootLayout({
       </head>
       <body className="flex justify-center">
           {children}
-        <script src="/canvas.js"></script>
+        <script src="/canvas.js" async></script>
       </body>
     </html>
   )

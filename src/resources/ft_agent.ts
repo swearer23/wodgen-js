@@ -21,7 +21,7 @@ export default async (wod: Wod) => {
     new HumanMessage(`
       This is a FOR TIME kind of WOD:\n
       ${JSON.stringify(wod)}.\n
-      How many rounds do you think this WOD need for repeat?\n
+      How many rounds do you think this WOD need for repeat within ${wod.timecap}?\n
       Respond with json format structure like this: ` + JSON.stringify(schema)),
   ]);
   const round = JSON.parse(result.content).rounds

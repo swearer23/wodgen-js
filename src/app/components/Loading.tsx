@@ -36,6 +36,8 @@ const Backdrop = React.forwardRef<
   );
 });
 
+Backdrop.displayName = 'Backdrop';
+
 const blue = {
   200: '#99CCF3',
   400: '#3399FF',

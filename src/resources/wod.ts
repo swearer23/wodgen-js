@@ -17,7 +17,7 @@ const schema = {
   timecap: "WOD timecap",
   description: "WOD description",
   exercises: [
-    "excercises with equipment and weight",
+    "[reps] [excercises] [weight]",
   ],
 }
 

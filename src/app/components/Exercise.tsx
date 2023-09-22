@@ -17,7 +17,7 @@ export default function InsetList({lines} : {
       {
         lines.map(item => {
           return (
-            <ListItem disablePadding>
+            <ListItem disablePadding key={item}>
               <ListItemButton>
                 <ListItemIcon>
                   <BiBracket />
