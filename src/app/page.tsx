@@ -1,5 +1,9 @@
-import { redirect } from 'next/navigation'
+import WhiteBoard from "./components/whiteboard"
 
 export default async function Home() {
-  redirect('/wod/today')
+  return (
+    <div className="w-full text-left">
+      <WhiteBoard />
+    </div>
+  )
 }

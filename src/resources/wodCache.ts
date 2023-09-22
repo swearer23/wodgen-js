@@ -25,10 +25,10 @@ const cache = {
   }
 }
 
-export default async () => {
+export const getWodCache = async () => {
   const cachedWod = cache.read()
   let wod: Wod
-  if (cachedWod && cachedWod.ts > Date.now() - 1000 * 5 * 60) {
+  if (cachedWod && cachedWod.ts > Date.now() - 1000 * 10 * 60) {
     wod = cachedWod.wod
   } else {
     wod = (await getWod()) as Wod

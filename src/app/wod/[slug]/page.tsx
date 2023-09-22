@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 import Exercise from "@/app/components/Exercise"
 import TypeSelector from "@/app/components/TypeSelector"
 import Divider from '@mui/material/Divider';
-import getWodCache from "@/resources/wodCache"
+import { getWodCache } from "@/resources/wodCache"
 import { getWod } from "@/resources/wod"
 import RefreshButton from "../../components/Refresh"
 
