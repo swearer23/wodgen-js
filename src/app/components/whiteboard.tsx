@@ -3,25 +3,13 @@ import { useState, useEffect } from 'react'
 import { Wod } from '@/types'
 import {BsBookmarkStar} from 'react-icons/bs'
 
-export default function WhiteBoard() {
-  const [wod, setWod] = useState(null as unknown as Wod)
-  const [loading, setLoading] = useState(false)
-
-  const generateWod = async () => {
-    setLoading(true)
-    const response = await fetch('/api/wod', {
-      method: 'POST',
-      body: JSON.stringify({})
-    })
-    const data = await response.json() as Wod
-    setWod(data)
-    setLoading(false)
-  }
-
-  useEffect(() => {
-    if (!wod && !loading) generateWod()
-  }, [])
-  
+export default function WhiteBoard({
+  wod,
+  loading
+}: {
+  wod: Wod,
+  loading: boolean
+}) {
   if (loading) {
     return (
       <div className="mt-10">

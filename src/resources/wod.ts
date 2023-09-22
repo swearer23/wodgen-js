@@ -48,3 +48,24 @@ export const getWod = async (type: String = '') => {
   console.log(wod)
   return wod
 }
+
+export const tailorWod = async (tailorMsg: string, originWod: any) => {
+  const instruction = `
+    Dow designed a WOD:
+    ${JSON.stringify(originWod)}.
+    Please tailor this WOD according to the following message:
+    ${tailorMsg}
+  `
+  const result = await llm.predictMessages([
+    new SystemMessage("Dow is a elite CrossFit coach for generating workout of day -- WOD."),
+    new HumanMessage(`
+      Instruction: ${instruction}\n
+      Respond with json format structure like this: ` + JSON.stringify(schema)),
+  ]);
+  let wod = JSON.parse(result.content)
+  if (wod.type === 'FOR_TIME') {
+    wod = await ft_agent(wod)
+  }
+  console.log(wod)
+  return wod
+}
