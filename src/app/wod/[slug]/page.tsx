@@ -16,9 +16,11 @@ export default async function Home({
 } : {params: {slug: string}}) {
   let wod
   let { slug } = params
-  if (slug == 'today') {
+  console.log(process.env.NODE_ENV)
+  if (slug == 'today' && process.env.NODE_ENV == 'development') {
     console.log('today')
-    wod = await getWodCache()
+    if (process.env.NODE_ENV == 'development') wod = await getWodCache()
+    else wod = await getWod()
   } else if (slug == 'refresh') {
     console.log('refresh')
     wod = await getWod()
