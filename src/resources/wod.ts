@@ -1,6 +1,7 @@
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { SystemMessage, HumanMessage } from "langchain/schema";
 import ft_agent from "@/resources/ft_agent";
+import getWodCombo from "@/resources/combo";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -31,18 +32,20 @@ const formatInstruction = `
     - dummbell
 `
 
-export const getWod = async (type: String = '') => {
-  console.log('Fetching new wod from chatgpt')
-  const typestr = type ? ` ${type} type` : 'random'
+export const getWod = async () => {
+  const {type, preference} = getWodCombo()
+  const comboStr = `of type of ${type} and focus on ${preference}`
+
+  console.log('Fetching new wod from chatgpt', comboStr)
   const result = await llm.predictMessages([
     new SystemMessage("Dow is a elite CrossFit coach for generating workout of day -- WOD."),
     new HumanMessage(`
       Instruction: ${formatInstruction}\n
-      Design a high quality ${typestr} WOD for me.\n
+      Design a high quality and interesting ${comboStr} WOD for me.\n
       Respond with json format structure like this: ` + JSON.stringify(schema)),
   ]);
   let wod = JSON.parse(result.content)
-  if (type === 'FOR_TIME') {
+  if (wod.type.toLowerCase() === 'for time') {
     wod = await ft_agent(wod)
   }
   console.log(wod)
@@ -53,7 +56,7 @@ export const tailorWod = async (tailorMsg: string, originWod: any) => {
   const instruction = `
     Dow designed a WOD:
     ${JSON.stringify(originWod)}.
-    Please tailor this WOD according to the following message:
+    Please tailor most part of this WOD according to the following message:
     ${tailorMsg}
   `
   const result = await llm.predictMessages([
@@ -63,7 +66,7 @@ export const tailorWod = async (tailorMsg: string, originWod: any) => {
       Respond with json format structure like this: ` + JSON.stringify(schema)),
   ]);
   let wod = JSON.parse(result.content)
-  if (wod.type === 'FOR_TIME') {
+  if (wod.type.toLowerCase() === 'for time') {
     wod = await ft_agent(wod)
   }
   console.log(wod)

@@ -27,7 +27,7 @@ export default function WhiteBoard({
         <section className='gap-4 grid grid-flow-col justify-start'>
           <div className="badge badge-neutral">{wod.type}</div>
           <div className="badge badge-neutral">{wod.timecap}</div>
-          {wod.round && <div className="badge badge-neutral">{wod.round}</div>}
+          {wod.round && <div className="badge badge-neutral">{wod.round} Rounds</div>}
         </section>
         <section>
           <ul>
