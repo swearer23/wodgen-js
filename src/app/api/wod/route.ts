@@ -4,7 +4,7 @@ import { getWodCache } from '@/resources/wodCache'
 
 export async function POST(request: NextRequest) {
   let wod
-  if (process.env.NODE_ENV !== 'development') wod = await getWodCache()
+  if (process.env.NODE_ENV == 'development') wod = await getWodCache()
   else wod = await getWod()
   return NextResponse.json(wod)
 }
