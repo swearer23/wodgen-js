@@ -1,5 +1,6 @@
 import './globals.css'
 import { GiWeightLiftingUp } from 'react-icons/gi'
+import { Analytics } from '@vercel/analytics/react';
 
 export default function RootLayout({
   children,
@@ -32,6 +33,7 @@ export default function RootLayout({
           </footer>
         </div>
         <script src="/canvas.js" async></script>
+        <Analytics />
       </body>
     </html>
   )
