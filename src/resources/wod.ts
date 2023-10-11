@@ -34,7 +34,7 @@ const formatInstruction = `
 
 export const getWod = async () => {
   const {type, preference} = getWodCombo()
-  const comboStr = `of type of ${type} and focus on ${preference}`
+  const comboStr = `of type of ${type} and includes movemnets for ${preference}`
 
   console.log('Fetching new wod from chatgpt', comboStr)
   const result = await llm.predictMessages([

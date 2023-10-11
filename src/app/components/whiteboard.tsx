@@ -19,17 +19,17 @@ export default function WhiteBoard({
   } else if(wod) {
     return (
       <div className="mt-10 w-full prose">
-        <h1>
+        <h1 className='text-gray-200'>
           <BsBookmarkStar className="inline-block mr-2" />
           {wod.title}
         </h1>
-        <p>{wod.description}</p>
-        <section className='gap-4 grid grid-flow-col justify-start'>
+        <p className='text-gray-300'>{wod.description}</p>
+        <section className='gap-4 grid grid-flow-col justify-start text-gray-100'>
           <div className="badge badge-neutral">{wod.type}</div>
           <div className="badge badge-neutral">{wod.timecap}</div>
           {wod.round && <div className="badge badge-neutral">{wod.round} Rounds</div>}
         </section>
-        <section>
+        <section className='text-gray-300'>
           <ul>
             {wod.exercises.map((exercise, index) => {
               return (

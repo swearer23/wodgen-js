@@ -7,11 +7,12 @@ const getRandomIndex = (length: number) => {
 export default () => {
   const wodTypes = Object.values(WOD_TYPE)
   const rdmType = wodTypes[getRandomIndex(wodTypes.length)]
+  // const rdmType = 'For Time'
   const wodPreferences = Object.values(WOD_PREFERENCE)
   const rdmPreference1 = wodPreferences[getRandomIndex(wodPreferences.length)]
   const rdmPreference2 = wodPreferences[getRandomIndex(wodPreferences.length)]
   return {
     type: rdmType,
-    preference: `${rdmPreference1} and ${rdmPreference2}`
+    preference: `${rdmPreference1}` // and ${rdmPreference2}`
   }
 }
