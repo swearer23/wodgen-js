@@ -23,7 +23,7 @@ body {
 /* @import url('https://fonts.googleapis.com/css?family=Lora&display=swap'); */
 
 a {
-    color: rgb(199, 32, 32);
+    color: #c72020;
     /* text-decoration:#2224 wavy underline; */
     transition:all 0.3s;
 }
@@ -31,11 +31,6 @@ a:hover {
         color:#000;
         text-shadow:0 0 30px #3338;
     }
-
-canvas {
-    position:fixed;
-    z-index:-1;
-}
 
 .max-w-5xl {
     max-width: 64rem;
@@ -48,4 +43,13 @@ canvas {
 .mx-auto {
     margin-left: auto;
     margin-right: auto;
+}
+
+.maroon {
+    font-weight: bold;
+    color: #c72020;
+}
+
+.btn-primary {
+
 }
