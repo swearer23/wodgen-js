@@ -1,3 +1,5 @@
+import { WOD_TYPE } from "@/const"
+
 export type Wod = {
   title: string
   type: string
@@ -6,4 +8,10 @@ export type Wod = {
   timecap: string
   exercises: string[]
   round?: number
+}
+
+export type TabOption = {
+  name: WOD_TYPE,
+  value: string,
+  active?: boolean,
 }

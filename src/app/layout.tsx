@@ -20,6 +20,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""></link>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto+Mono:wght@100;400&display=swap" rel="stylesheet"></link>
       </head>
       <body className="flex justify-center px-5" style={heroBgStyle}>
         <div className='flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen min-w-xl'>
@@ -32,10 +33,10 @@ export default function RootLayout({
           <main className='flex flex-1 w-full flex-col px-4 mt-12 sm:mt-20'>
             <div>
               <h1 className="sm:text-6xl text-4xl max-w-[708px] text-gray-200 antialiased mb-4">
-                Generate your next <span className='maroon'>WOD</span> using AI Assistant By
+                Generate your next <span className='maroon'>WOD</span> using AI Assistant
               </h1>
-              <button className="btn btn-active btn-sm bg-gray-800 border-red-700 text-white mb-5">Sign Up</button>
-              <p>Or Subscribe to receive <b className='maroon'>FREE</b> WOD Everyday</p>
+              {/* <button className="btn btn-active btn-sm bg-gray-800 border-red-700 text-white mb-5">Sign Up</button> */}
+              <p>Subscribe to receive <b className='maroon'>FREE</b> WOD Everyday</p>
             </div>
             <Subscribe />
             {children}
