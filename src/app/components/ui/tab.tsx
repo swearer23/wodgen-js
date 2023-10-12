@@ -1,25 +1,33 @@
+'use client'
 import { useState } from "react"
 import { TabOption } from "@/types"
 
 const Tab = ({
   tabOptions,
-  activeValue,
   onTabClick,
+  activeValue,
+  children
 }: {
   tabOptions: TabOption[],
-  activeValue: string,
   onTabClick: (value: string) => void,
+  activeValue?: string | undefined,
+  children?: React.ReactNode
 }) => {
 
-  tabOptions.forEach((item: TabOption, idx: number) => {
-    if (item.value == activeValue) {
-      item.active = true
-    }
-  })
+  if (activeValue) {
+    tabOptions.forEach((item: TabOption) => {
+      if (item.value == activeValue) {
+        item.active = true
+      }
+    })
+  } else {
+    tabOptions[0].active = true
+  }
+  
   const [tabs, setTabs] = useState(tabOptions)
 
   const handleTabClick = (value: string) => {
-    tabs.forEach((item, idx) => {
+    tabs.forEach(item => {
       if (item.value == value) {
         item.active = true
       } else {
@@ -31,27 +39,30 @@ const Tab = ({
   }
 
   return (
-    <div className="tabs tabs-boxed mb-5 grid grid-flow-col justify-stretch" style={{
-      height: '48px',
-      padding: '0',
-      backgroundColor: '#333',
-    }}>
-      {tabs.map((item) => {
-        let className = item.active ? 'tab tab-active' : 'tab'
-        let style = {
-          color: '#F5F5F5',
-          height: '100%',
-          backgroundColor: '#333',
-          fontSize: '12px',
-        }
-        if (className.includes('active')) {
-          style.backgroundColor = '#CC252B'
-        }
-        return (
-          <button key={item.value} onClick={() => {handleTabClick(item.value)}} className={className} style={style}>{item.name}</button>
-        )
-      })}
-    </div>
+    <>
+      <div className="tabs tabs-boxed mb-5 grid grid-flow-col justify-stretch" style={{
+        height: '48px',
+        padding: '0',
+        backgroundColor: '#333',
+      }}>
+        {tabs.map((item) => {
+          let className = item.active ? 'tab tab-active' : 'tab'
+          let style = {
+            color: '#F5F5F5',
+            height: '100%',
+            backgroundColor: '#333',
+            fontSize: '12px',
+          }
+          if (className.includes('active')) {
+            style.backgroundColor = '#CC252B'
+          }
+          return (
+            <button key={item.value} onClick={() => {handleTabClick(item.value)}} className={className} style={style}>{item.name}</button>
+          )
+        })}
+      </div>
+      {children}
+    </>
   )
 }
 

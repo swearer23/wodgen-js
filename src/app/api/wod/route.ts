@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getWod } from '@/resources/wod'
 import { getWodCache } from '@/resources/wodCache'
+import { getDailyWodKey } from '@/utils'
+import { kv } from '@vercel/kv';
 
 export async function POST(request: NextRequest) {
   let wod
@@ -10,5 +12,9 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
-  return new NextResponse('hello world get')
+  const key = getDailyWodKey()
+  const wod = await kv.get(key)
+  return NextResponse.json({
+    data: wod
+  })
 }

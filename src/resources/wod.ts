@@ -2,7 +2,7 @@ import { ChatOpenAI } from "langchain/chat_models/openai";
 import { SystemMessage, HumanMessage } from "langchain/schema";
 import ft_agent from "@/resources/ft_agent";
 import getWodCombo from "@/resources/combo";
-
+import { WOD } from "@/types";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -32,9 +32,9 @@ const formatInstruction = `
     - dummbell
 `
 
-export const getWod = async () => {
+export const getWod = async (assignWodType: string | null = null) : Promise<WOD> => {
   const {type, preference} = getWodCombo()
-  const comboStr = `of type of ${type} and includes movemnets for ${preference}`
+  const comboStr = `of type of ${assignWodType || type} and includes movemnets for ${preference}`
 
   console.log('Fetching new wod from chatgpt', comboStr)
   const result = await llm.predictMessages([
@@ -44,7 +44,7 @@ export const getWod = async () => {
       Design a high quality and interesting ${comboStr} WOD for me.\n
       Respond with json format structure like this: ` + JSON.stringify(schema)),
   ]);
-  let wod = JSON.parse(result.content)
+  let wod = JSON.parse(result.content) as WOD
   if (wod.type.toLowerCase() === 'for time') {
     wod = await ft_agent(wod)
   }

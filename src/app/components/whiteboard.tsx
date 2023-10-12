@@ -1,8 +1,6 @@
 import { Wod } from '@/types'
-import Tab from './ui/tab'
 import { prependNumber } from '@/utils'
 import { WOD_TYPE } from '@/const'
-import { TabOption } from '@/types'
 
 const iconImgStyle = {
   width: '1rem',
@@ -18,10 +16,6 @@ export default function WhiteBoard({
   wod: Wod,
   loading: boolean
 }) {
-  const wodType = Object.keys(WOD_TYPE).map((key: String) => ({name: WOD_TYPE[key as keyof typeof WOD_TYPE], value: key}))
-  const onTabClick = (value: string) => {
-    console.log(value)
-  }
   if (loading) {
     return (
       <div className="mt-5">
@@ -31,7 +25,6 @@ export default function WhiteBoard({
   } else if(wod) {
     return (
       <div className="mt-5 w-full prose">
-        <Tab tabOptions={wodType as TabOption[]} activeValue='' onTabClick={onTabClick} />
         <h1 className='text-gray-200' style={{
           fontSize: '1.5em',
           color: '#f5f5f5',
