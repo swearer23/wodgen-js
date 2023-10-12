@@ -1,7 +1,6 @@
 import './globals.css'
 import { GiWeightLiftingUp } from 'react-icons/gi'
 import { Analytics } from '@vercel/analytics/react';
-import Subscribe from './components/Subscribe';
 
 const heroBgStyle = {
   backgroundImage: 'url(/images/hero-bg@2x.png)',
@@ -31,14 +30,6 @@ export default function RootLayout({
             </h1>
           </header>
           <main className='flex flex-1 w-full flex-col px-4 mt-12 sm:mt-20'>
-            <div>
-              <h1 className="sm:text-6xl text-4xl max-w-[708px] text-gray-200 antialiased mb-4">
-                Generate your next <span className='maroon'>WOD</span> using AI Assistant
-              </h1>
-              {/* <button className="btn btn-active btn-sm bg-gray-800 border-red-700 text-white mb-5">Sign Up</button> */}
-              <p>Subscribe to receive <b className='maroon'>FREE</b> WOD Everyday</p>
-            </div>
-            <Subscribe />
             {children}
           </main>
           <footer className="text-center h-16 sm:h-20 w-full sm:pt-2 pt-4 border-t border-gray-600 mt-5 flex sm:flex-row flex-col justify-between items-center px-3 space-y-3 sm:mb-0 mb-3">

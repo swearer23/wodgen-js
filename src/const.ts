@@ -19,3 +19,4 @@ export enum WOD_PREFERENCE {
 
 const KV_PREFIX = process.env.NODE_ENV === 'production' ? 'PROD' : 'DEV'
 export const SUBSCRIPTION_RDS_KEY = `${KV_PREFIX}_SUBSCRIPTIONS`
+export const DAILY_WOD_RDS_KEY = `${KV_PREFIX}_DAILY_WOD`
