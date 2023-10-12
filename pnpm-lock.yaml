@@ -35,6 +35,9 @@ dependencies:
   '@vercel/analytics':
     specifier: ^1.0.2
     version: 1.0.2
+  '@vercel/kv':
+    specifier: ^0.2.3
+    version: 0.2.3(encoding@0.1.13)
   autoprefixer:
     specifier: 10.4.15
     version: 10.4.15(postcss@8.4.29)
@@ -822,8 +825,25 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: false
 
+  /@upstash/redis@1.22.0(encoding@0.1.13):
+    resolution: {integrity: sha512-sXoJDoEqqik0HbrNE7yRWckOySEFsoBxfRdCgOqkc0w6py19ZZG50SpGkDDEUXSnBqP8VgGYXhWAiBpqxrt5oA==}
+    dependencies:
+      isomorphic-fetch: 3.0.0(encoding@0.1.13)
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
   /@vercel/analytics@1.0.2:
     resolution: {integrity: sha512-BZFxVrv24VbNNl5xMxqUojQIegEeXMI6rX3rg1uVLYUEXsuKNBSAEQf4BWEcjQDp/8aYJOj6m8V4PUA3x/cxgg==}
+    dev: false
+
+  /@vercel/kv@0.2.3(encoding@0.1.13):
+    resolution: {integrity: sha512-Wq1+EsRBQmvLlcqCZeYVg1MAARWrnETgLe3Sy3UCqG+zg7LThpkt0YHZe1NN3Aj4IRmCKQamotWrLDdEx+ZB3w==}
+    engines: {node: '>=14.6'}
+    dependencies:
+      '@upstash/redis': 1.22.0(encoding@0.1.13)
+    transitivePeerDependencies:
+      - encoding
     dev: false
 
   /abort-controller@3.0.0:
@@ -2331,6 +2351,15 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: false
 
+  /isomorphic-fetch@3.0.0(encoding@0.1.13):
+    resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==}
+    dependencies:
+      node-fetch: 2.7.0(encoding@0.1.13)
+      whatwg-fetch: 3.6.19
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
   /iterator.prototype@1.1.2:
     resolution: {integrity: sha512-DR33HMMr8EzwuRL8Y9D3u2BMj8+RqSE850jfGu59kS7tbmPLzGkZmVSfyCFSDxuZiEY6Rzt3T2NA/qU+NwVj1w==}
     dependencies:
@@ -3785,6 +3814,10 @@ packages:
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
+    dev: false
+
+  /whatwg-fetch@3.6.19:
+    resolution: {integrity: sha512-d67JP4dHSbm2TrpFj8AbO8DnL1JXL5J9u0Kq2xW6d0TFDbCA3Muhdt8orXC22utleTVj7Prqt82baN6RBvnEgw==}
     dev: false
 
   /whatwg-url@5.0.0:

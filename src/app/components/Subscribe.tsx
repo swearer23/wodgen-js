@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { SuccessToast, ErrorToast } from "./ui/toast"
+import { ToastContainer } from 'react-toastify'
 
 const Subscribe = () => {
   const [email, setEmail] = useState('')
@@ -13,15 +13,12 @@ const Subscribe = () => {
     fetch('/api/subscribe', {
       method: 'POST',
       body: JSON.stringify({ email })
-    }).then(res => {
+    }).then(async res => {
+      const data = await res.json()
       if (res.status === 200) {
-        toast.success('Thank you for subscribing!', {
-          autoClose: 3000,
-          closeButton: false,
-          hideProgressBar: true,
-        })
+        SuccessToast(data.message)
       } else {
-        toast.error('Thank you for subscribing!')
+        ErrorToast(data.error)
       }
     }).finally(() => {
       setLoading(false)
