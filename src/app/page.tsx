@@ -2,7 +2,7 @@
 import Subscribe from './components/Subscribe';
 import Tab from './components/ui/tab';
 import WhiteBoard from './components/whiteboard';
-import { TabOption, Wod } from '@/types'
+import { TabOption, Wod } from '@/types';
 import { WOD_TYPE } from '@/const';
 import { useState, useEffect } from 'react';
 
@@ -16,20 +16,22 @@ const Index = () => {
   }
   let wodType = Object.keys(WOD_TYPE).map((key: String) => ({name: WOD_TYPE[key as keyof typeof WOD_TYPE], value: key}))
   if (wodList == undefined) {
-    fetch('/api/wod', {
-      method: 'GET'
-    }).then(async res => {
-      if (res.status === 200) {
-        setWodList((await res.json()).data)
-      }
-    })
+    if (typeof window !== 'undefined') {
+      fetch('/api/wod', {
+        method: 'GET'
+      }).then(async res => {
+        if (res.status === 200) {
+          setWodList((await res.json()).data)
+        }
+      })
+    }
   }
-
+  
   useEffect(() => {
     if (wodList) {
       setActiveWod(wodList.find(wod => wod.type === WOD_TYPE[activeType as keyof typeof WOD_TYPE]))
     }
-  }, [activeType])
+  }, [activeType, wodList])
 
   return (
     <>
@@ -41,7 +43,8 @@ const Index = () => {
         <p>Subscribe to receive <b className='maroon'>FREE</b> WOD Everyday</p>
       </div>
       <Subscribe />
-      <div className='mt-5'>
+      <hr className='mt-10' />
+      <div className='mt-10'>
         <Tab tabOptions={wodType as TabOption[]} activeValue={activeType} onTabClick={onTabClick}>
           {activeWod && <WhiteBoard wod={activeWod} loading={!wodList} />}
         </Tab>
