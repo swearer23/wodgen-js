@@ -48,7 +48,7 @@ export default function Dialog({
   return (
     <>
       <WhiteBoard loading={loading} wod={wod} />
-      <UserInput onSubmit={(tailorMsg) => startNewSession(tailorMsg, wod)} loading={loading} />
+      {/* <UserInput onSubmit={(tailorMsg) => startNewSession(tailorMsg, wod)} loading={loading} /> */}
     </>
   )
 }

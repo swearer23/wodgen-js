@@ -20,6 +20,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""></link>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto+Mono:wght@100;400&display=swap" rel="stylesheet"></link>
       </head>
       <body className="flex justify-center px-5" style={heroBgStyle}>
         <div className='flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen min-w-xl'>
