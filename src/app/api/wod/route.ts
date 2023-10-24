@@ -13,6 +13,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   const key = getDailyWodKey()
+  console.log(process.env.VERCEL_ENV)
   console.log(key)
   const wod = await kv.get(key)
   return NextResponse.json({
