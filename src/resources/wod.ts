@@ -33,7 +33,7 @@ const formatInstruction = `
     - dummbell
 `
 
-export const getWod = async (assignWodType: string | null = null) : Promise<WOD> => {
+export const getWod = async (assignWodType: string | null = null) : Promise<Wod> => {
   const {type, preference} = getWodCombo()
   const comboStr = `of type of ${assignWodType || type} and includes movemnets for ${preference}`
 
@@ -45,7 +45,7 @@ export const getWod = async (assignWodType: string | null = null) : Promise<WOD>
       Design a high quality and interesting ${comboStr} WOD for me.\n
       Respond with json format structure like this: ` + JSON.stringify(schema)),
   ]);
-  let wod = JSON.parse(result.content) as WOD
+  let wod = JSON.parse(result.content) as Wod
   if (wod.type.toLowerCase() === 'for time') {
     wod = await ft_agent(wod)
   }
