@@ -19,7 +19,7 @@ export enum WOD_PREFERENCE {
 
 const ENV_PREFIX_MAP: {[key: string]: string} = {
   production: 'PROD',
-  preview: 'PREVIEW',
+  preview: 'DEV',
   development: 'DEV',
 }
 const VERCEL_ENV = process.env.VERCEL_ENV || 'development'
