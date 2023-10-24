@@ -2,7 +2,7 @@ import { ChatOpenAI } from "langchain/chat_models/openai";
 import { SystemMessage, HumanMessage } from "langchain/schema";
 import ft_agent from "@/resources/ft_agent";
 import getWodCombo from "@/resources/combo";
-import { WOD } from "@/types";
+import { Wod } from "@/types";
 import dotenv from "dotenv";
 dotenv.config();
 
