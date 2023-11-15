@@ -32,10 +32,10 @@ export default function RootLayout({
           <main className='flex flex-1 w-full flex-col px-4 mt-12 sm:mt-20'>
             <div>
               <h1 className="sm:text-6xl text-4xl max-w-[708px] text-gray-200 antialiased mb-4">
-                Generate your next <span className='maroon'>WOD</span> using AI Assistant By
+                Generate your next <span className='maroon'>WOD</span> using AI Assistant
               </h1>
-              <button className="btn btn-active btn-sm bg-gray-800 border-red-700 text-white mb-5">Sign Up</button>
-              <p>Or Subscribe to receive <b className='maroon'>FREE</b> WOD Everyday</p>
+              {/* <button className="btn btn-active btn-sm bg-gray-800 border-red-700 text-white mb-5">Sign Up</button> */}
+              <p>Subscribe to receive <b className='maroon'>FREE</b> WOD Everyday</p>
             </div>
             <Subscribe />
             {children}
