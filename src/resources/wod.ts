@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const llm = new ChatOpenAI({
+  modelName: "gpt-3.5-turbo",
   openAIApiKey: process.env.OPENAI_API_KEY,
   temperature: 0.8,
 });
